@@ -203,6 +203,35 @@
         or maintenance concern.
       </p>
 
+      <form class="quote-form" id="quote-form" action="mailto:rventhvac@gmail.com" method="post" enctype="text/plain">
+        <label for="quote-name">Name</label>
+        <input id="quote-name" name="name" type="text" autocomplete="name" required>
+
+        <label for="quote-email">Email</label>
+        <input id="quote-email" name="email" type="email" autocomplete="email" required>
+
+        <label for="quote-phone">Phone <span>(optional)</span></label>
+        <input id="quote-phone" name="phone" type="tel" autocomplete="tel">
+
+        <label for="quote-service">Service needed</label>
+        <select id="quote-service" name="service" required>
+          <option value="" selected disabled>Select a service</option>
+          <option>Air conditioning</option>
+          <option>Ductworks</option>
+          <option>Ventilation</option>
+          <option>Exhaust systems</option>
+          <option>Maintenance &amp; repair</option>
+          <option>Testing &amp; commissioning</option>
+          <option>Other / not sure</option>
+        </select>
+
+        <label for="quote-details">Project details</label>
+        <textarea id="quote-details" name="details" rows="5" required placeholder="Tell us about your location, project and timeline."></textarea>
+
+        <button type="submit">Prepare quote request →</button>
+        <p class="quote-note" id="quote-note">Your email app will open with your details. Review and send the message to R-Vent.</p>
+      </form>
+
     </div>
 
 

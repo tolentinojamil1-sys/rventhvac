@@ -371,8 +371,72 @@ nav a:hover{
   margin-top:12px;
 }
 
-.contact > div:first-child > p:last-child{
+.contact > div:first-child > p:not(.eyebrow){
   line-height:1.6;
+}
+
+.quote-form{
+  display:grid;
+  gap:9px;
+  margin-top:28px;
+  max-width:480px;
+}
+
+.quote-form label{
+  font-size:14px;
+  font-weight:700;
+  margin-top:8px;
+}
+
+.quote-form label span{
+  font-weight:400;
+}
+
+.quote-form input,
+.quote-form select,
+.quote-form textarea{
+  width:100%;
+  min-height:46px;
+  padding:11px 13px;
+  border:1px solid #c5d9ee;
+  border-radius:7px;
+  background:#fff;
+  color:var(--ink);
+  font:inherit;
+}
+
+.quote-form textarea{
+  min-height:115px;
+  resize:vertical;
+}
+
+.quote-form :is(input,select,textarea):focus-visible,
+.quote-form button:focus-visible{
+  outline:3px solid #b5e4ff;
+  outline-offset:2px;
+}
+
+.quote-form button{
+  margin-top:10px;
+  padding:14px 18px;
+  border:0;
+  border-radius:7px;
+  background:#06192c;
+  color:#fff;
+  font:inherit;
+  font-weight:700;
+  cursor:pointer;
+}
+
+.quote-form button:hover{
+  background:#123c62;
+}
+
+.quote-form .quote-note{
+  margin:4px 0 0;
+  font-size:13px;
+  line-height:1.5;
+  color:#e7f3ff;
 }
 
 .contact-box{
