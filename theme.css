@@ -1,0 +1,23 @@
+/* R-Vent theme upgrade */
+:root{color-scheme:light dark}
+body{transition:background-color .25s ease,color .25s ease}
+.theme-toggle{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border:1px solid rgba(255,255,255,.28);border-radius:999px;background:rgba(255,255,255,.08);color:#fff;font-size:19px;cursor:pointer;transition:transform .2s ease,background .2s ease,border-color .2s ease;margin-left:-18px}
+.theme-toggle:hover{transform:translateY(-1px);background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.5)}
+.theme-toggle:focus-visible{outline:3px solid #55a8ff;outline-offset:3px}
+body.dark-mode{--ink:#e8f1f8;--muted:#a7bacb;--light:#0a1826;background:#07131f;color:#e8f1f8}
+body.dark-mode .services,body.dark-mode .coverage{background:#07131f;color:#e8f1f8}
+body.dark-mode .section p{color:#a7bacb}
+body.dark-mode .cards article{background:#0d2031;border-color:#213c52;color:#eef6fc;box-shadow:0 12px 32px rgba(0,0,0,.2)}
+body.dark-mode .cards article:hover{border-color:#3476ad;box-shadow:0 18px 45px rgba(0,0,0,.34)}
+body.dark-mode .projects{background:#03101c}
+body.dark-mode .contact{background:linear-gradient(135deg,#075cb9,#052f5f)}
+body.dark-mode .contact-box{background:#0d2031;color:#e8f1f8;border:1px solid #27445c;box-shadow:0 20px 50px rgba(0,0,0,.28)}
+body.dark-mode .contact-box a,body.dark-mode .contact-box p{color:#e8f1f8}
+body.dark-mode .contact-box span{color:#a7bacb}
+body.dark-mode .social a{background:#102d47;color:#75b9ff}
+body.dark-mode .quote-form input,body.dark-mode .quote-form select,body.dark-mode .quote-form textarea{background:#0a1927;color:#eef6fc;border-color:#45637b}
+body.dark-mode .quote-form input::placeholder,body.dark-mode .quote-form textarea::placeholder{color:#8ea5b8}
+body.dark-mode footer{background:#020b13}
+body:not(.dark-mode) .services,body:not(.dark-mode) .coverage{background:#fff}
+@media(max-width:800px){.theme-toggle{margin-left:auto;margin-right:4px;order:2;width:39px;height:39px}.menu{order:3}}
+@media(prefers-reduced-motion:reduce){body,.theme-toggle,.cards article{transition:none!important}}
