@@ -80,3 +80,50 @@ if (quoteForm) {
     window.location.href = address;
   });
 }
+
+
+// Project photos are local copies of R-Vent's public Legazpi, Makati album.
+const projectGalleries = {
+  makati: {
+    title: 'Legazpi, Makati Project',
+    images: [1, 2, 3, 4, 5].map((n) => `assets/projects/makati-${n}.jpg`)
+  }
+};
+const galleryDialog = document.getElementById('project-gallery');
+if (galleryDialog) {
+  const galleryPhoto = document.getElementById('gallery-photo');
+  const galleryTitle = document.getElementById('gallery-title');
+  const galleryCount = document.getElementById('gallery-count');
+  let activeGallery = null;
+  let activeIndex = 0;
+  const renderPhoto = () => {
+    if (!activeGallery) return;
+    galleryPhoto.src = activeGallery.images[activeIndex];
+    galleryPhoto.alt = `${activeGallery.title}, photo ${activeIndex + 1} of ${activeGallery.images.length}`;
+    galleryCount.textContent = `Photo ${activeIndex + 1} of ${activeGallery.images.length}`;
+  };
+  const stepPhoto = (delta) => {
+    if (!activeGallery) return;
+    activeIndex = (activeIndex + delta + activeGallery.images.length) % activeGallery.images.length;
+    renderPhoto();
+  };
+  document.querySelectorAll('[data-gallery]').forEach((button) => {
+    button.addEventListener('click', () => {
+      activeGallery = projectGalleries[button.dataset.gallery];
+      if (!activeGallery) return;
+      activeIndex = 0;
+      galleryTitle.textContent = activeGallery.title;
+      renderPhoto();
+      galleryDialog.showModal();
+    });
+  });
+  galleryDialog.querySelector('.gallery-close').addEventListener('click', () => galleryDialog.close());
+  galleryDialog.querySelector('.gallery-prev').addEventListener('click', () => stepPhoto(-1));
+  galleryDialog.querySelector('.gallery-next').addEventListener('click', () => stepPhoto(1));
+  galleryDialog.addEventListener('click', (event) => { if (event.target === galleryDialog) galleryDialog.close(); });
+  galleryDialog.addEventListener('keydown', (event) => {
+    if (event.key === 'ArrowLeft') stepPhoto(-1);
+    if (event.key === 'ArrowRight') stepPhoto(1);
+  });
+  galleryDialog.addEventListener('close', () => { activeGallery = null; galleryPhoto.removeAttribute('src'); });
+}
