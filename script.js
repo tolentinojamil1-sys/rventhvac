@@ -29,10 +29,7 @@ themeToggle.setAttribute('title', 'Switch light / dark mode');
 const header = document.querySelector('header');
 const quoteButton = document.querySelector('header .quote');
 if (header) header.insertBefore(themeToggle, quoteButton || null);
-const systemPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-let savedTheme = null;
-try { savedTheme = localStorage.getItem('rvent-theme'); } catch (_) {}
-const initialDark = savedTheme ? savedTheme === 'dark' : systemPrefersDark;
+const initialDark = false;
 function applyTheme(isDark) {
   document.body.classList.toggle('dark-mode', isDark);
   themeToggle.textContent = isDark ? '☀️' : '🌙';
@@ -44,7 +41,6 @@ applyTheme(initialDark);
 themeToggle.addEventListener('click', () => {
   const isDark = !document.body.classList.contains('dark-mode');
   applyTheme(isDark);
-  try { localStorage.setItem('rvent-theme', isDark ? 'dark' : 'light'); } catch (_) {}
 });
 
 // Subtle scroll reveal animation for key content.
